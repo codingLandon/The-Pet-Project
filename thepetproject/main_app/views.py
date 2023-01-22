@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
 from .models import Resource
+from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 # Create your views here.
 def about(request):
   return render(request, 'about.html')
@@ -10,6 +13,7 @@ def about(request):
 def home(request):
   return render(request, 'home.html')
 
+@login_required
 def resources_index(request):
   resources = Resource.objects.all()
   return render(request, 'resources/index.html', {'resources': resources})
@@ -36,5 +40,16 @@ class ResourceCreate(CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-def resources_detail(request):
-  pass
+
+class ResourceUpdate(LoginRequiredMixin, UpdateView):
+  model = Resource
+  fields = ['type', 'description', 'location', 'species']
+
+class ResourceDelete(LoginRequiredMixin, DeleteView):
+  model = Resource
+  success_url = '/resources/'
+
+def resources_detail(request, resource_id):
+    resource = Resource.objects.get(id=resource_id)
+    return render(request, 'resources/detail.html', { 'resource': resource })
+
