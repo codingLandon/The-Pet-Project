@@ -18,3 +18,11 @@ class Resource(models.Model):
 
     def get_absolute_url(self):
         return reverse('index')
+
+
+class Comment(models.Model):
+  date = models.DateField('comment date')
+  content = models.TextField( max_length=200)
+  resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+
