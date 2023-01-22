@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>All Resources</h1>
-{% for resource in resources %}
+<h1>Resource Details</h1>
 <div class="card">
-    <a href="{% url 'detail' resource.id %}">
-        <div class="card-content">
-            <span class="card-title">{{ resource.type }}</span>
-            <p>Description: {{ resource.description }}</p>
-            <p>Location: {{ resource.location }}</p>
-            <p>Species: {{ resource.species }}</p>
-            <p>User: {{ resource.user }}</p>
-        </div>
-    </a>
+    <div class="card-content">
+        <span class="card-title">{{ resource.type }}</span>
+        <p>Description: {{ resource.description }}</p>
+        <p>Location: {{ resource.location }}</p>
+        <p>Species: {{ resource.species }}</p>
+        <p>User: {{ resource.user }}</p>
+    </div>
+    {% if request.user == resource.user %}
+    <div class="card-action">
+        <a href="{% url 'resources_update' resource.id %}">Edit</a>
+        <a href="{% url 'resources_delete' resource.id %}">Delete</a>
+      </div>
+    {% endif %}
 </div>
-{% endfor %}
 
 {% endblock %}
