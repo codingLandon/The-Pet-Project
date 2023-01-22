@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
 from .models import Resource
+from .forms import CommentForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -51,5 +52,17 @@ class ResourceDelete(LoginRequiredMixin, DeleteView):
 
 def resources_detail(request, resource_id):
     resource = Resource.objects.get(id=resource_id)
-    return render(request, 'resources/detail.html', { 'resource': resource })
+    comment_form = CommentForm()
+    return render(request, 'resources/detail.html', {
+    'resource': resource, 'comment_form': comment_form
+  })
 
+@login_required
+def add_comment(request, resource_id):
+    form = CommentForm(request.POST)
+  # validate the form
+    if form.is_valid():
+        new_comment = form.save(commit=False)
+        new_comment.resource_id = resource_id
+        new_comment.save()
+    return redirect('detail', resource_id=resource_id)
