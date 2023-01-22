@@ -11,7 +11,8 @@ def home(request):
   return render(request, 'home.html')
 
 def resources_index(request):
-  return render(request, 'resources/index.html')
+  resources = Resource.objects.all()
+  return render(request, 'resources/index.html', {'resources': resources})
 
 def signup(request):
   error_message = ''
@@ -34,3 +35,6 @@ class ResourceCreate(CreateView):
   def form_valid(self, form): 
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+def resources_detail(request):
+  pass
