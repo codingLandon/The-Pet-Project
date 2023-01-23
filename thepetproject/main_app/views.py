@@ -68,3 +68,9 @@ def add_comment(request, resource_id):
         new_comment.user = request.user
         new_comment.save()
     return redirect('detail', resource_id=resource_id)
+
+@login_required
+def delete_comment(request, comment_id, resource_id):
+    comment = Comment.objects.get(id=comment_id)
+    comment.delete()
+    return redirect(request, 'detail', resource_id=resource_id)

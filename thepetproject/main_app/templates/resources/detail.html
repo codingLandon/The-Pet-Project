@@ -36,9 +36,7 @@
                 <td>{{comment.date}}</td>
                 <td>{{comment.content}}</td>
                 <td>{{comment.user}}</td>
-                <td><div class="card-action">
-                  <a href="{% url 'comments_delete' resource.id %}">Delete</a>
-                </div></td>
+                <td>{% if request.user == comment.user %}<a href="{% url 'delete_comment' comment.id %}">X</a>{% endif %}</td>
               </tr>
             {% endfor %}
           </tbody>
