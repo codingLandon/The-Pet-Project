@@ -19,7 +19,7 @@
       </div>
     {% endif %}
     </div>
-</div>
+  </div>
       <div class="col s6">
         <form action="{% url 'add_comment' resource.id %}" method="POST">
           {% csrf_token %}
@@ -28,18 +28,22 @@
         </form>
         <table class="striped">
           <thead>
-            <tr><th>Date</th><th>Content</th><th>User</th></tr>
+            <tr><th>Date</th><th>Content</th><th>User</th><th>Delete Comment</th></tr>
           </thead>
           <tbody>
             {% for comment in resource.comment_set.all %}
               <tr>
                 <td>{{comment.date}}</td>
-                <td>{{comment.get_content_display}}</td>
+                <td>{{comment.content}}</td>
+                <td>{{comment.user}}</td>
+                <td><div class="card-action">
+                  <a href="{% url 'comments_delete' resource.id %}">Delete</a>
+                </div></td>
               </tr>
             {% endfor %}
           </tbody>
         </table>
       </div>
-</div>
+  </div>
 
 {% endblock %}
