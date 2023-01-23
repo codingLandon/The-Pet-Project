@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
-from .models import Resource
+from .models import Resource, Comment
 from .forms import CommentForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 
 # Create your views here.
 def about(request):
@@ -64,5 +65,6 @@ def add_comment(request, resource_id):
     if form.is_valid():
         new_comment = form.save(commit=False)
         new_comment.resource_id = resource_id
+        new_comment.user = request.user
         new_comment.save()
     return redirect('detail', resource_id=resource_id)
