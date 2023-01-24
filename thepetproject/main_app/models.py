@@ -5,9 +5,15 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+DONATIONS= (
+    ('F', 'Food'),
+    ('H', 'Health'),
+    ('T', 'Training'),
+    ('O', 'Other')
+)
 
 class Resource(models.Model):
-    type = models.CharField(max_length=10)
+    type = models.CharField(max_length=50, choices=DONATIONS, default=DONATIONS[0][0])
     description = models.TextField(max_length=250)
     location = models.TextField(max_length=250)
     species = models.CharField(max_length=50)

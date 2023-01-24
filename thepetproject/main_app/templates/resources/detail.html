@@ -6,7 +6,7 @@
 <div class="col s6">
 <div class="card">
     <div class="card-content">
-        <span class="card-title">{{ resource.type }}</span>
+        <span class="card-title">{{ resource.get_type_display }}</span>
         <p>Description: {{ resource.description }}</p>
         <p>Location: {{ resource.location }}</p>
         <p>Species: {{ resource.species }}</p>
@@ -36,12 +36,25 @@
                 <td>{{comment.date}}</td>
                 <td>{{comment.content}}</td>
                 <td>{{comment.user}}</td>
-                <td>{% if request.user == comment.user %}<a href="{% url 'delete_comment' comment.id %}">X</a>{% endif %}</td>
+                <td>{% if request.user == comment.user %}<a href="{% url 'delete_comment' resource.id comment.id %}">X</a>{% endif %}</td>
               </tr>
             {% endfor %}
           </tbody>
         </table>
       </div>
   </div>
+
+  <script>
+
+    const dateEl = document.getElementById('id_date');
+    M.Datepicker.init(dateEl, {
+      format: 'yyyy-mm-dd',
+      defaultDate: new Date(),
+      setDefaultDate: true,
+      autoClose: true
+    });
+  
+  </script>
+
 
 {% endblock %}
