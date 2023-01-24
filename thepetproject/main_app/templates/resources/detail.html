@@ -19,6 +19,21 @@
       </div>
     {% endif %}
     </div>
+
+
+  <button data-target="modal1" class="btn modal-trigger">Request Resource</button>
+
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Contact Info</h4>
+      <p>{{ resource.user.first_name }}</p>
+      <p>{{ resource.user.email }}</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
   </div>
       <div class="col s6">
         <form action="{% url 'add_comment' resource.id %}" method="POST">
@@ -53,6 +68,11 @@
       setDefaultDate: true,
       autoClose: true
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems);
+  });
   
   </script>
 
