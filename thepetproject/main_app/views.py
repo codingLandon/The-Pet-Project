@@ -20,6 +20,22 @@ def resources_index(request):
   resources = Resource.objects.all()
   return render(request, 'resources/index.html', {'resources': resources})
 
+def resources_food(request):
+  resources = Resource.objects.filter(type='F')
+  return render(request, 'resources/food.html', {'resources': resources})
+
+def resources_health(request):
+  resources = Resource.objects.filter(type='H')
+  return render(request, 'resources/health.html', {'resources': resources})
+
+def resources_training(request):
+  resources = Resource.objects.filter(type='T')
+  return render(request, 'resources/training.html', {'resources': resources})
+
+def resources_other(request):
+  resources = Resource.objects.filter(type='O')
+  return render(request, 'resources/other.html', {'resources': resources})
+
 def signup(request):
   error_message = ''
   if request.method == 'POST':
@@ -70,7 +86,8 @@ def add_comment(request, resource_id):
     return redirect('detail', resource_id=resource_id)
 
 @login_required
-def delete_comment(request, comment_id, resource_id):
-    comment = Comment.objects.get(id=comment_id)
+def delete_comment(request, resource_id, comment_id):
+  comment = Comment.objects.get(id=comment_id)
+  if request.user.id == comment.user_id:
     comment.delete()
-    return redirect(request, 'detail', resource_id=resource_id)
+    return redirect('detail', resource_id=resource_id)
