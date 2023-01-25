@@ -8,20 +8,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>The Pet Project</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather&family=Nunito&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
   <header id="header">
     <div class="column">
-    <nav class="col s12">
+    <nav class="col s12" id="upper-nav">
       <div class="nav-wrapper">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;ThePetProject</a></li>
+          <li><a href="/" class="left brand-logo" style="font-family:'Lobster',cursive;font-size:50px;">&nbsp;&nbsp;ThePetProject</a></li>
         </ul>
         <ul class="right">
         {% if user.is_authenticated %}
@@ -35,16 +36,16 @@
       </div>
     </nav>
     <nav class="col s12 " id="lower-nav">
-      <div class="nav-wrapper">
+      <div class="nav-wrapper" id="lower">
         <ul>
           <li><a href="{% url 'about' %}">About</a></li>
         {% if user.is_authenticated %}
-          <li><a href="{% url 'index' %}">All Resources</a></li>
-          <li><a href="{% url 'food' %}">Food</a></li>
-          <li><a href="{% url 'health' %}">Health</a></li>
-          <li><a href="{% url 'training' %}">Training</a></li>
-          <li><a href="{% url 'other' %}">Other</a></li>
-          <li><a href="{% url 'resources_create' %}">Add Donation</a></li>
+          <li id="nav"><a href="{% url 'index' %}">All Resources</a></li>
+          <li id="nav"><a href="{% url 'food' %}">Food</a></li>
+          <li id="nav"><a href="{% url 'health' %}">Health</a></li>
+          <li id="nav"><a href="{% url 'training' %}">Training</a></li>
+          <li id="nav"><a href="{% url 'other' %}">Other</a></li>
+          <li id="nav"><a href="{% url 'resources_create' %}">Add Donation</a></li>
         {% else %}
          
         {% endif %}
@@ -57,7 +58,7 @@
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="page-footer indigo lighten-2">
+  <footer class="page-footer">
     <div class="right">All Rights Reserved, &copy; 2023 The Pet Project &nbsp;</div>
   </footer>
 </body>

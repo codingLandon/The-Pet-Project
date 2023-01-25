@@ -13,15 +13,15 @@
         <p>User: {{ resource.user }}</p>
     </div>
     {% if request.user == resource.user %}
-    <div class="card-action">
-        <a href="{% url 'resources_update' resource.id %}">Edit</a>
-        <a href="{% url 'resources_delete' resource.id %}">Delete</a>
+    <div class="card-action" style="text-align: right">
+        <a href="{% url 'resources_update' resource.id %}"><i class="material-icons hoverable circle" style="color:teal">edit</i></a>
+        <a href="{% url 'resources_delete' resource.id %}"><i class="material-icons hoverable circle" style="color:teal">delete</i></a>
       </div>
     {% endif %}
     </div>
 
 
-  <button data-target="modal1" class="btn modal-trigger">Request Resource</button>
+  <button data-target="modal1" class="btn modal-trigger"><i class="material-icons">email</i></button>
 
   <div id="modal1" class="modal">
     <div class="modal-content">
@@ -51,7 +51,7 @@
                 <td>{{comment.date}}</td>
                 <td>{{comment.content}}</td>
                 <td>{{comment.user}}</td>
-                <td>{% if request.user == comment.user %}<a href="{% url 'delete_comment' resource.id comment.id %}">X</a>{% endif %}</td>
+                <td>{% if request.user == comment.user %}<a href="{% url 'delete_comment' resource.id comment.id %}"><i class="material-icons" style="color:teal">delete</i></a>{% endif %}</td>
               </tr>
             {% endfor %}
           </tbody>
