@@ -1,19 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>All Resources</h1>
-{% for resource in resources %}
-        <div class="card">
-            <a href="{% url 'detail' resource.id %}">
-                <div class="card-content">
-                    <span class="card-title">{{ resource.get_type_display }}</span>
-                    <p>Description: {{ resource.description }}</p>
-                    <p>Location: {{ resource.location }}</p>
-                    <p>Species: {{ resource.species }}</p>
-                    <p>User: {{ resource.user }}</p>
-                </div>
-            </a>
+<h1 class="center-align">Food Resources</h1>
+<div class="row">
+    {% for resource in resources %}
+        <div class="col s4">
+            <div class="card" >
+                <a href="{% url 'detail' resource.id %}">
+                    <div class="card-content">
+                        <span class="card-title">{{ resource.get_type_display }}</span>
+                        <p>Description: {{ resource.description }}</p>
+                        <p>Location: {{ resource.location }}</p>
+                        <p>Species: {{ resource.species }}</p>
+                        <p>User: {{ resource.user }}</p>
+                    </div>
+                </a>
+            </div>
         </div>
-{% endfor %}
-
+    {% endfor %}
+</div>
 {% endblock %}
