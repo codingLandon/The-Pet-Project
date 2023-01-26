@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'thepetproject',
         'USER': os.environ('DB_USER'),
-        'PASSWORD': os.environ('DB_PASSWORD'),
+        'PASSWORD': os.environ('DB_PW'),
         'HOST': 'db.bit.io',
         'PORT': '5432'
     }
