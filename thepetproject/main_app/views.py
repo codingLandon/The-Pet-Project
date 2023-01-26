@@ -9,9 +9,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 
 # Create your views here.
-def about(request):
-  return render(request, 'about.html')
-
 def home(request):
   return render(request, 'home.html')
 

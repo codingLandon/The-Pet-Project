@@ -3,7 +3,7 @@
 
 <h1>Resource Details</h1>
 <div class="row">
-<div class="col s6">
+<div class="col s12">
 <div class="card">
     <div class="card-content">
         <span class="card-title">{{ resource.get_type_display }}</span>
@@ -16,12 +16,10 @@
     <div class="card-action" style="text-align: right">
         <a href="{% url 'resources_update' resource.id %}"><i class="material-icons hoverable circle" style="color:teal">edit</i></a>
         <a href="{% url 'resources_delete' resource.id %}"><i class="material-icons hoverable circle" style="color:teal">delete</i></a>
-      </div>
+    {% else %}
+        <button data-target="modal1" class="btn modal-trigger waves-effect waves-light"><i class="material-icons">email</i></button>
     {% endif %}
-    </div>
-
-
-  <button data-target="modal1" class="btn modal-trigger"><i class="material-icons">email</i></button>
+      </div>
 
   <div id="modal1" class="modal">
     <div class="modal-content">
@@ -33,13 +31,16 @@
       <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
   </div>
+    </div>
+
+  <br><br><br>
 
   </div>
-      <div class="col s6">
+      <div class="col s12">
         <form action="{% url 'add_comment' resource.id %}" method="POST">
           {% csrf_token %}
           {{ comment_form.as_p }}
-          <input type="submit" class="btn" value="Add Comment">
+          <input type="submit" class="btn waves-effect waves-light" value="Add Comment">
         </form>
         <table class="striped">
           <thead>
