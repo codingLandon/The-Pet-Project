@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath thepetproject thepetproject.wsgi
+web: gunicorn thepetproject/thepetproject.wsgi
