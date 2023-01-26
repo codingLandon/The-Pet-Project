@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Merriweather&family=Nunito&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
@@ -23,6 +24,7 @@
       <div class="nav-wrapper">
         <ul>
           <li><a href="/" class="left brand-logo" style="font-family:'Lobster',cursive;font-size:50px;">&nbsp;&nbsp;ThePetProject</a></li>
+          
         </ul>
         <ul class="right">
         {% if user.is_authenticated %}
@@ -35,21 +37,37 @@
         </ul>
       </div>
     </nav>
-    <nav class="col s12 " id="lower-nav">
+    <nav class="col s12" id="lower-nav">
       <div class="nav-wrapper" id="lower">
-        <ul>
-          <li><a href="{% url 'about' %}">About</a></li>
-        {% if user.is_authenticated %}
-          <li id="nav"><a href="{% url 'index' %}">All Resources</a></li>
-          <li id="nav"><a href="{% url 'food' %}">Food</a></li>
-          <li id="nav"><a href="{% url 'health' %}">Health</a></li>
-          <li id="nav"><a href="{% url 'training' %}">Training</a></li>
-          <li id="nav"><a href="{% url 'other' %}">Other</a></li>
-          <li id="nav"><a href="{% url 'resources_create' %}">Add Donation</a></li>
-        {% else %}
-         
-        {% endif %}
-        </ul>
+        <div class="container">
+            <a href="#" class="right sidenav-trigger" data-target="mobile-links">
+              <i class="right material-icons">menu</i>
+            </a>
+          <ul class="hide-on-med-and-down" id="list">
+          {% if user.is_authenticated %}
+            <li id="nav"><a href="{% url 'index' %}">All Resources</a></li>
+            <li id="nav"><a href="{% url 'food' %}">Food</a></li>
+            <li id="nav"><a href="{% url 'health' %}">Health</a></li>
+            <li id="nav"><a href="{% url 'training' %}">Training</a></li>
+            <li id="nav"><a href="{% url 'other' %}">Other</a></li>
+            <li id="nav"><a href="{% url 'resources_create' %}">Add Donation</a></li>
+          {% else %}
+          
+          {% endif %}
+          </ul>
+        </div>
+        <ul class="sidenav" id="mobile-links">
+          {% if user.is_authenticated %}
+            <li id="nav"><a href="{% url 'index' %}">All Resources</a></li>
+            <li id="nav"><a href="{% url 'food' %}">Food</a></li>
+            <li id="nav"><a href="{% url 'health' %}">Health</a></li>
+            <li id="nav"><a href="{% url 'training' %}">Training</a></li>
+            <li id="nav"><a href="{% url 'other' %}">Other</a></li>
+            <li id="nav"><a href="{% url 'resources_create' %}">Add Donation</a></li>
+          {% else %}
+           
+          {% endif %}
+          </ul>
       </div>
     </div>
   </div>
@@ -61,5 +79,10 @@
   <footer class="page-footer">
     <div class="right">All Rights Reserved, &copy; 2023 The Pet Project &nbsp;</div>
   </footer>
+  <script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    })
+  </script>
 </body>
 </html>

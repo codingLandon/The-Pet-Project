@@ -14,8 +14,8 @@ DONATIONS= (
 
 class Resource(models.Model):
     type = models.CharField(max_length=50, choices=DONATIONS, default=DONATIONS[0][0])
-    description = models.TextField(max_length=250)
-    location = models.TextField(max_length=250)
+    description = models.CharField(max_length=200)
+    location = models.CharField(max_length=200)
     species = models.CharField(max_length=50)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 

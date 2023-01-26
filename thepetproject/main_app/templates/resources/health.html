@@ -4,15 +4,13 @@
 <h1 class="center-align">Health Resources</h1>
 <div class="row">
     {% for resource in resources %}
-        <div class="col s4">
+        <div class="col s12 l4">
             <div class="card hoverable" >
                 <a href="{% url 'detail' resource.id %}">
                     <div class="card-content">
                         <span class="card-title">{{ resource.get_type_display }}</span>
-                        <p>Description: {{ resource.description }}</p>
                         <p>Location: {{ resource.location }}</p>
                         <p>Species: {{ resource.species }}</p>
-                        <p>User: {{ resource.user }}</p>
                     </div>
                 </a>
             </div>

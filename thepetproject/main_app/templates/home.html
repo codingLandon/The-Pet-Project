@@ -2,9 +2,16 @@
 {% block content %}
 
 
-<div class="about">
+<div class="center-align" id="about">
+    <h1>Times are ruff.</h1>
+    <h3>Shelters are full.</h3>
+    <h5>Let's work together to keep pets out of the shelters and in their homes by offering services and resources to pet owners in need.</h5>
+    <a class="waves-effect waves-light btn" onclick="$('.tap-target').tapTarget('open')">Find Out How</a>
+    
 
 </div>
+
+<h5 class="center-align" id="owners-about">Pet owners, you'll find resources to meet every need:</h5>
 
 
 <div id="home-resources">
@@ -31,4 +38,17 @@
 </div>
 
 
+<a id="menu" class="right waves-effect waves-light btn btn-floating" ><i class="material-icons">menu</i></a>
+<div class="tap-target" data-target="menu">
+    <div class="tap-target-content">
+      <h5>Donate Now</h5>
+      <p>A bunch of text</p>
+    </div>
+  </div>
+
+<script>
+     $(document).ready(function(){
+    $('.tap-target').tapTarget();
+  });
+</script>
 {% endblock %}

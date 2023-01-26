@@ -1,24 +1,28 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    font-family: 'Nunito', sans-serif;
-  }
-  
-  main {
-    flex: 1 0 auto;
-    
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: 'Nunito', sans-serif;
+}
 
-  footer.page-footer {
-    padding-top: 0;
-    text-align: right;
+main {
+  flex: 1 0 auto;
 
-  }
+}
+
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
+
+}
 
 .page-footer {
   background-color: #6448B7;
   filter: opacity(50%);
+}
+
+.modal-trigger {
+  margin: 15px;
 }
 
 #upper-nav {
@@ -30,15 +34,26 @@ body {
   background-color: #6448B7;
 }
 
-#home-resources{
+#owners-about {
+  margin-top: 60px;
+}
+
+#find-out-how{
+  margin-top: 75px;
+}
+
+#home-resources {
   display: flex;
   font-size: 18px;
   justify-content: center;
-  margin-top: 250px;
-  
+  margin-top: 50px;
+
 }
 
-#other-home, #food-home, #train-home, #health-home {
+#other-home,
+#food-home,
+#train-home,
+#health-home {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,3 +67,17 @@ body {
   margin-right: 0;
 }
 
+#list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card-content {
+  color: black;
+}
+#menu{
+  bottom: -40px;
+  position: fixed;
+  right: -13px;
+}
