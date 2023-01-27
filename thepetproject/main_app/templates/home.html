@@ -6,9 +6,7 @@
     <h1>Times are ruff.</h1>
     <h3>Shelters are full.</h3>
     <h5>Let's work together to keep pets out of the shelters and in their homes by offering services and resources to pet owners in need.</h5>
-    <a class="waves-effect waves-light btn" onclick="$('.tap-target').tapTarget('open')">Find Out How</a>
-    
-
+    <a class="waves-effect waves-light btn" id="find-out-how" onclick="$('.tap-target').tapTarget('open')">Find Out How</a>
 </div>
 
 <h5 class="center-align" id="owners-about">Pet owners, you'll find resources to meet every need:</h5>
@@ -18,31 +16,35 @@
     <div class="col s12 m3" id="food-home">
         <i class="large material-icons">room_service</i> 
         <h5>Food Resources</h5>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque, sed est dolores accusantium officiis tempora similique, dolorem at corrupti delectus voluptatibus consectetur consequuntur veniam mollitia alias et amet eos quisquam.<p>  
+        <p>Our food resources section offers a variety of options for pet owners looking to provide their furry friends with healthy and nutritious meals. From dog kibble to cat chow, you'll find a wide variety of pet food from reputable brands.<p>  
     </div>
     <div class="col s12 m3" id="health-home">
         <i class="large material-icons">healing</i>
         <h5>Health Resources</h5>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo laboriosam, quisquam nihil laborum officiis corrupti possimus odio natus recusandae quis totam in a quod repudiandae aliquam tenetur porro quibusdam eligendi.<p>
+        <p>Our health resources section is dedicated to providing pet owners with the resources they need to keep their pet's healthy and happy. From general wellness tips and advice to specific information on common health conditions and treatments, our resources cover a wide range of topics. We also provide a directory of trusted veterinarians and pet health care providers offering free or low-cost services, so that you can easily find the help you need when your pet needs it.  <p>
     </div>
     <div class="col s12 m3" id="train-home">
         <i class=" large material-icons">star</i>
         <h5>Training Resources</h5>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit fugiat nihil recusandae possimus dignissimos. Tempore reprehenderit assumenda architecto voluptatibus suscipit sapiente autem pariatur voluptatum molestiae tenetur, similique, temporibus nesciunt quae?<p>
+        <p>Our training resources section offers a wide variety of options for pet owners looking to improve their pet's behavior. From basic obedience training to more advanced tricks and techniques, our resources are designed to help pet owners of all skill levels. <p>
     </div>
     <div class="col s12 m3" id="other-home">
         <i class=" large material-icons">pets</i>
         <h5>Other Resources</h5>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, doloremque deserunt at, temporibus suscipit aliquid quam mollitia ea itaque voluptatem, qui perferendis? Perferendis earum consequuntur eius optio autem esse eveniet.<p>
+        <p>Haven't found what you're looking for? Our other resources section contains anything from pet play-dates to low cost grooming services, and everything in between!  <p>
     </div>
 </div>
-
 
 <a id="menu" class="right waves-effect waves-light btn btn-floating" ><i class="material-icons">menu</i></a>
 <div class="tap-target" data-target="menu">
     <div class="tap-target-content">
-      <h5>Donate Now</h5>
-      <p>A bunch of text</p>
+        <h5>Donate Now</h5>
+        {% if user.is_authenticated %}
+        <li id="add-donation"><a href="{% url 'resources_create' %}">Add Donation</a></li>
+        {% else %}
+        <li id="add-donation"><a href="{% url 'signup' %}">Sign Up</a></li>
+        <li id="add-donation"><a href="{% url 'login' %}">Log In</a></li>
+        {% endif %}
     </div>
   </div>
 

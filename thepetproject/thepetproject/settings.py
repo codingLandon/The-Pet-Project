@@ -14,9 +14,9 @@ from pathlib import Path
 
 import os
 
-import environ
-env = environ.Env()
-environ.Env.read_env()
+# import environ
+# env = environ.Env()
+# environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -84,10 +84,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'thepetproject',
-        'USER': os.environ('DB_USER'),
-        'PASSWORD': os.environ('DB_PASSWORD'),
-        'HOST': 'db.bit.io',
-        'PORT': '5432'
+    #     'USER': os.environ('DB_USER'),
+    #     'PASSWORD': os.environ('DB_PASSWORD'),
+    #     'HOST': 'db.bit.io',
+    #     'PORT': '5432'
     }
 }
 
@@ -137,5 +137,5 @@ LOGOUT_REDIRECT_URL = '/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import django_on_heroku
-django_on_heroku.settings(locals())
+# import django_on_heroku
+# django_on_heroku.settings(locals())
