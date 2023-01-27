@@ -16,6 +16,8 @@ general location of the donation.</p>
 <li>Django</li>
 <li>HTML</li>
 <li>CSS</li>
+<li>JavaScript</li>
+<li>Jquery</li>
 <h2 align='center'>Icebox</h2>
 <li>AS A USER, I want to have the option to surrender pets</li>
 <li>AS A USER, I want to be able to post requests for specific resources</li>
