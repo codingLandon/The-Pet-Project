@@ -17,3 +17,7 @@ general location of the donation.</p>
 <li>AS A USER, I want to have the option to surrender pets</li>
 <li>AS A USER, I want to be able to post requests for specific resources</li>
 <h2 align='center'>Check It Out</h2>
+
+![Screen Shot 2023-01-27 at 9 31 12 AM](https://user-images.githubusercontent.com/118827974/215111546-7a41024f-d2a8-46b6-b8a3-4be44917e342.png)
+
+![Screen Shot 2023-01-27 at 9 31 55 AM](https://user-images.githubusercontent.com/118827974/215111557-be4ae299-426a-47de-bbec-505ca1b87f8f.png)
