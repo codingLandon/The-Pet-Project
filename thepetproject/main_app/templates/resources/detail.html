@@ -14,8 +14,8 @@
     </div>
     {% if request.user == resource.user %}
     <div class="card-action" style="text-align: right">
-        <a href="{% url 'resources_update' resource.id %}"><i class="material-icons hoverable circle" style="color:teal">edit</i></a>
-        <a href="{% url 'resources_delete' resource.id %}"><i class="material-icons hoverable circle" style="color:teal">delete</i></a>
+        <a href="{% url 'resources_update' resource.id %}"><i class="material-icons hoverable circle" style="color:#6448B7">edit</i></a>
+        <a href="{% url 'resources_delete' resource.id %}"><i class="material-icons hoverable circle" style="color:#6448B7">delete</i></a>
     {% else %}
         <button data-target="modal1" class="btn modal-trigger waves-effect waves-light"><i class="material-icons">email</i></button>
     {% endif %}
@@ -40,7 +40,7 @@
         <form action="{% url 'add_comment' resource.id %}" method="POST">
           {% csrf_token %}
           {{ comment_form.as_p }}
-          <input type="submit" class="btn waves-effect waves-light" value="Add Comment">
+          <input type="submit" class="btn waves-effect waves-light" id="add-comment" value="Add Comment">
         </form>
         <table class="striped">
           <thead>
