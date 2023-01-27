@@ -1,1 +1,1 @@
-web: gunicorn thepetproject/thepetproject.wsgi:application
+web: gunicorn thepetproject.wsgi
