@@ -21,5 +21,7 @@ general location of the donation.</p>
 <li>AS A USER, I want to be able to post requests for specific resources</li>
 <h2 align='center'>Check It Out</h2>
 
+https://trello.com/b/qJ9OZE5H/p3-the-pet-project
+
 
 ![Screen Shot 2023-01-27 at 9 31 55 AM](https://user-images.githubusercontent.com/118827974/215111557-be4ae299-426a-47de-bbec-505ca1b87f8f.png)
