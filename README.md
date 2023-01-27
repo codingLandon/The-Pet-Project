@@ -1,5 +1,6 @@
 <h1 align='center'>The Pet Project</h1>
 <h2 align='center'>What It Is</h2>
+
 ![Screen Shot 2023-01-27 at 9 31 12 AM](https://user-images.githubusercontent.com/118827974/215112183-aef9b5d0-0461-4ac0-ac13-405b513c93a4.png)
 
 <p><i>The Pet Project</i> is a web-based application built by developers <i>Ayana Spina, Joseph Cuozzo, and Landon Grams.</i> It is designed to provide 
